@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        python-version: [3.9, 3.10, 3.11]  # Defines the Python versions to test against
+        python-version: ["3.9", "3.10", "3.11"]  # Defines the Python versions to test against
 
     steps:
     - uses: actions/checkout@v3  # Updated to the latest version
