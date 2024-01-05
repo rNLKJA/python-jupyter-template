@@ -5,20 +5,21 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-  workflow_dispatch:
+  workflow_dispatch:  # Allows manual triggering of the workflow
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Specifies the runner
+
     strategy:
       matrix:
-        python-version: [3.8, 3.9, 3.10]
+        python-version: [3.9, 3.10, 3.11]  # Defines the Python versions to test against
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3  # Updated to the latest version
 
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v3  # Updated to the latest version
       with:
         python-version: ${{ matrix.python-version }}
 
@@ -27,13 +28,13 @@ jobs:
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-    - name: Test with pytest
+    - name: Run pytest
       run: |
         pip install pytest
-        pytest tests/  # Adjust if your tests are in a different directory
+        pytest tests/  # Assumes your tests are in the 'tests' directory
 
-    # Uncomment and adjust the following step for linting
+    # Optional: Uncomment and adjust the following step for linting with flake8
     # - name: Lint with flake8
     #   run: |
     #     pip install flake8
-    #     flake8 . --count --exit-zero --statistics
+    #     flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
