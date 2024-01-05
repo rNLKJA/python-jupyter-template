@@ -1,0 +1,37 @@
+name: Issue Management
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  manage-issue:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Acknowledge Issue
+      uses: actions/github-script@v5
+      with:
+        script: |
+          // Post a comment on the newly opened issue
+          github.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: '👋 Thanks for reporting! The team will review the issue soon.'
+          })
+
+          // Assign the issue to a team member
+          github.issues.addAssignees({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            assignees: ['username1'] // Replace 'username1' with the GitHub username of the team member
+          })
+
+          // Add a label to the issue
+          github.issues.addLabels({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            labels: ['Triage'] // Replace 'Triage' with the label you want to add
+          })

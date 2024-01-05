@@ -1,0 +1,19 @@
+name: my-python-env
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.8  # or any version you prefer
+  - numpy=1.20  # Replace with the version you need
+  - pandas=1.2  # Replace with the version you need
+  - scikit-learn  # Add the version if needed
+  - matplotlib  # Add the version if needed
+  - jupyterlab  # For Jupyter Lab
+  - ipykernel  # For Jupyter kernel
+  - pip:
+    - some-pip-package==1.0.4  # Replace with the pip packages you need
+    - another-pip-package==2.3.1  # Replace with the pip packages you need
+
+# Use this section to install any additional pip packages not available via Conda
+#  - pip:
+#    - package-name==version
