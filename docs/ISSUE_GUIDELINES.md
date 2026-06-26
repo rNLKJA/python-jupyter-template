@@ -15,7 +15,7 @@ When you encounter a bug, have a feature request, or see an opportunity for impr
 
 Issues can be assigned to specific team members to indicate who is responsible for working on them.
 
-- **To Assign an Issue**: When creating or editing an issue, you can assign it by typing a team member's username in the 'Assignees' section on the right. 
+- **To Assign an Issue**: When creating or editing an issue, you can assign it by typing a team member's username in the 'Assignees' section on the right.
 - **Multiple Assignees**: An issue can be assigned to multiple people if it requires collaboration or if it's a larger task that needs to be divided.
 
 ## Labeling Issues
@@ -51,4 +51,3 @@ Once the issue has been resolved, or if it's determined that it won't be address
 ## Conclusion
 
 Well-managed issues contribute significantly to the efficiency and clarity of the project. By following these guidelines, you're helping to maintain the quality and productivity of the development process. Your efforts are greatly appreciated!
-

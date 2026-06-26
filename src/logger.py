@@ -3,7 +3,7 @@ import logging
 import os
 
 # Create logs directory if it doesn't exist
-log_dir = 'logs'
+log_dir = "logs"
 if not os.path.exists(log_dir):
     os.makedirs(log_dir)
 
@@ -14,8 +14,8 @@ logging.basicConfig(
     format=log_format,
     handlers=[
         logging.FileHandler(f"{log_dir}/app.log"),  # Log to a file
-        logging.StreamHandler()  # Log to standard output
-    ]
+        logging.StreamHandler(),  # Log to standard output
+    ],
 )
 
 logger = logging.getLogger(__name__)

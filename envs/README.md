@@ -9,14 +9,12 @@ conda env create -f environment.yml
 
 2. Activate Environment: Activate the created environment using:
 
-
 ```bash
 Copy code
 conda activate my-python-env
 ```
 
 3. Deactivate Environment: When you're done working in the environment, you can deactivate it with:
-
 
 ```bash
 Copy code

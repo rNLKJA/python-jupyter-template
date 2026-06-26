@@ -1,6 +1,8 @@
 # tests/test_example.py
 import unittest
+
 from src.example_module import add  # Corrected import path
+
 
 class TestMathFunctions(unittest.TestCase):
 
@@ -11,5 +13,6 @@ class TestMathFunctions(unittest.TestCase):
 
     # Add more tests for other functions or edge cases
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

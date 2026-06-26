@@ -1,0 +1,5 @@
+_archive/
+data/
+logs/
+*.log
+LICENSE
