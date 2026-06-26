@@ -1,99 +1,101 @@
+<div align="center">
+
 # Python Jupyter Template
 
-This repository serves as a template for Python projects utilizing Jupyter Notebooks. It's designed to provide a solid starting point for data science projects with a focus on good practices and structure.
+A clean, opinionated starting point for Python data-science projects — structured folders, logging, tests, and CI ready to go.
 
-## Features
+[![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Jupyter](https://img.shields.io/badge/Jupyter-Lab-F37626?logo=jupyter&logoColor=white)](https://jupyter.org/)
+[![CI](https://img.shields.io/badge/CI-GitHub%20Actions-2088FF?logo=githubactions&logoColor=white)](.github/workflows/python_test.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-- Structured directory layout for source code, data, and notebooks.
-- Logging setup for monitoring and debugging.
-- Basic CI/CD with GitHub Actions.
-- Pre-configured setup for quickstart.
+</div>
+
+## Overview
+
+This repository is a reusable template for data-science work in Python and Jupyter. Instead of starting every project from an empty folder, clone this and you already have a sensible layout, a configured logger, a test harness, and a CI workflow — so you can spend your time on the analysis, not the scaffolding.
+
+It is deliberately small. The point is structure and good defaults, not a heavy framework.
+
+## Highlights
+
+- **Structured layout** — separate homes for source code (`src/`), notebooks (`notebooks/`), data (`data/`), scripts (`scripts/`), tests (`tests/`), and docs (`docs/`).
+- **Logging out of the box** — `src/logger.py` writes to both the console and `logs/app.log`; see [`docs/logging_usage.md`](docs/logging_usage.md) for how to use it.
+- **Tests + CI** — a sample `unittest` suite under `tests/`, wired to a GitHub Actions workflow that runs across Python 3.9–3.11.
+- **Environment files** — both `pip` (`envs/requirements.txt`) and Conda (`envs/environment.yml`) starting points.
+
+## Tech Stack
+
+| Area         | Tools                                     |
+| ------------ | ----------------------------------------- |
+| Language     | Python 3.9+                               |
+| Notebooks    | JupyterLab / Jupyter Notebook             |
+| Data science | NumPy, pandas, scikit-learn, Matplotlib   |
+| Testing      | `unittest` (swap in `pytest` if you like) |
+| CI           | GitHub Actions                            |
+| Packaging    | `setuptools` (`setup.py`)                 |
 
 ## Getting Started
 
-1. **Clone the Repository**
-    ```bash
-    git clone https://github.com/your-username/python-jupyter-template.git
-    cd python-jupyter-template
-    ```
+1. **Clone the repository**
 
-2. **Create and Activate a Virtual Environment (Recommended)**
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-    ```
+   ```bash
+   git clone https://github.com/rNLKJA/python-jupyter-template.git
+   cd python-jupyter-template
+   ```
 
-3. **Install Dependencies**
-    ```bash
-    pip install -r requirements.txt
-    ```
+2. **Create and activate a virtual environment**
 
-4. **Explore the Notebooks**
-    - Navigate to the `notebooks/` directory.
-    - Start a Jupyter server with `jupyter notebook`.
+   ```bash
+   python -m venv venv
+   source venv/bin/activate        # Windows: venv\Scripts\activate
+   ```
 
-5. **Run Tests**
-    ```bash
-    python -m unittest
-    ```
+3. **Install dependencies** (pip or Conda)
 
-### Usage
+   ```bash
+   pip install -r envs/requirements.txt
+   # or
+   conda env create -f envs/environment.yml
+   ```
 
-- **Notebooks**: Navigate to the `notebooks/` directory and start Jupyter Lab with `jupyter lab`.
-- **Scripts**: Run Python scripts located in the `scripts/` directory.
-- **Testing**: Execute tests using `python -m unittest discover -s tests`.
+4. **Explore the notebooks**
 
+   ```bash
+   jupyter lab        # then open the notebooks/ directory
+   ```
+
+5. **Run the tests**
+
+   ```bash
+   python -m unittest discover -s tests
+   ```
 
 ## Repo Structure
 
 ```
 python-jupyter-template/
-│
-├── .github/                        # Special GitHub files
-│   ├── workflows/                  # CI/CD workflow configurations
-│   └── ISSUE_TEMPLATE.md           # Issue templates for GitHub issues
-│
-├── notebooks/                      # Jupyter notebooks
-│   ├── exploratory/                # Initial exploratory notebooks
-│   └── final/                      # Polished final notebooks
-│
-├── src/                            # Source code for use in this project
-│   ├── __init__.py                 # Makes src a Python module
-│   ├── example_module.py           # Sample module
-│   └── logger.py                   # Logging configuration
-│
-├── scripts/                        # Standalone scripts for various tasks
-│   └── data_processing.py          # Example data processing script
-│
-├── tests/                          # Automated tests for the project
-│   ├── __init__.py
-│   └── test_example.py             # Sample test
-│
-├── docs/                           # Documentation files
-│   ├── project_overview.md         # Overview of the project
-│   └── usage_instructions.md       # Instructions for using the template
-│
-├── data/                           # Data files for the project
-│   ├── raw/                        # Raw data, immutable
-│   └── processed/                  # Cleaned and processed data
-│
-├── logs/                           # Log files
-│   └── app.log                     # Main application log
-│
-├── envs/                           # Environment configuration files
-│   ├── requirements.txt            # Python dependencies for venv
-│   └── environment.yml             # Conda environment file
-│
-├── .gitignore                      # Standard Python gitignore file
-├── LICENSE                         # License for the project
-├── README.md                       # The top-level README for developers using this project
-└── setup.py                        # Setup file for project distribution
+├── src/            # Project source code (incl. logger.py)
+├── notebooks/      # Jupyter notebooks (exploratory/ + final/)
+├── scripts/        # Standalone task scripts
+├── tests/          # Automated tests
+├── docs/           # Documentation
+├── data/           # raw/ (immutable) + processed/
+├── logs/           # Application logs
+├── envs/           # requirements.txt + environment.yml
+├── .github/        # CI workflows + issue templates
+├── setup.py        # Packaging
+└── LICENSE         # MIT
 ```
 
-## Contributing
+## Using This Template
 
-Your contributions are always welcome! Please feel free to submit issues and pull requests.
+Clone it, then make it yours:
+
+- Update the project name, author, and URL in [`setup.py`](setup.py).
+- Fill `envs/requirements.txt` (and `envs/environment.yml`) with your real dependencies.
+- Replace the sample module, script, and test with your own.
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+Released under the [MIT License](LICENSE).
